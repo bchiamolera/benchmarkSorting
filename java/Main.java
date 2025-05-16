@@ -15,9 +15,6 @@ public class Main {
         }
         String outputPath = dataDir + "/execution_times.csv";
 
-        System.out.println("Working directory: " + System.getProperty("user.dir"));
-        System.out.println("Output CSV path: " + new File(outputPath).getAbsolutePath());
-
         try (FileWriter writer = new FileWriter(outputPath)) {
             writer.append("Algorithm;Size;Time(ms)\n");
 
@@ -53,9 +50,9 @@ public class Main {
         }
 
         long end = System.nanoTime();
-        long durationMs = (end - start) / 1_000_000;
+        double durationMs = (end - start) / 1_000_000.0;
 
-        writer.append(String.format("%s;%d;%d\n", sortName, array.length, durationMs));
+        writer.append(String.format("%s;%d;%.3f\n", sortName, array.length, durationMs));
     }
 
     public static int[] generateRandomArray(int size) {
