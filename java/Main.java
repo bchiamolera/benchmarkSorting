@@ -26,6 +26,14 @@ public class Main {
                 benchmarkSort("MergeSort", baseArray, writer);
                 benchmarkSort("QuickSort", baseArray, writer);
             }
+            for (int i = 1; i <= 4; i++) {
+                int size = 20000;
+                int[] baseArray = generateRandomArray(size);
+
+                benchmarkSort("BubbleSort", baseArray, writer);
+                benchmarkSort("MergeSort", baseArray, writer);
+                benchmarkSort("QuickSort", baseArray, writer);
+            }
 
             System.out.println("CSV saved to: " + outputPath);
         } catch (IOException e) {
